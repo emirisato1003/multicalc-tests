@@ -7,7 +7,6 @@ import { OperandContext } from "./context/OperandContext";
 
 describe('Form', () => {
     it('should disable submit button when input is empty', async() => {
-        // create a mock context value witch is [operand, setOperand] state in App.jsx 
         const mockContextValue = {
             operand: 0,
             setOperand: vi.fn()
@@ -17,16 +16,12 @@ describe('Form', () => {
                 <Form />
             </OperandContext.Provider>
         );
-        // find the input and button 
         const input = screen.getByLabelText(/Calculate with:/i);
         const button = screen.getByRole('button', { name: /submit/i });
 
-        // expecting the button is not disable since operand value has '0'
         expect(button).not.toBeDisabled();
-        // clear the input to make it empty
         await userEvent.clear(input)
         
-        // expecting now the button is disabled since there is empty value in operand state
         expect(button).toBeDisabled()
         await userEvent.click(button)
     });
