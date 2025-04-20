@@ -4,8 +4,6 @@ import { describe, it, vi, expect } from "vitest";
 import "@testing-library/jest-dom/vitest"
 import Form from "./Form";
 import { OperandContext } from "./context/OperandContext";
-import { Buttons } from "@testing-library/user-event/dist/cjs/system/pointer/buttons.js";
-import { click } from "@testing-library/user-event/dist/cjs/convenience/click.js";
 
 describe('Form', () => {
     it('should disable submit button when input is empty', async() => {
